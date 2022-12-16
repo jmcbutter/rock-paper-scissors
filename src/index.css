@@ -2,4 +2,5 @@
 
 :root {
   font-family: "Barlow Semi Condensed", sans-serif;
+  font-size: calc(8px + 0.5vw);
 }
