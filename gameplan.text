@@ -1,0 +1,44 @@
+STEP 1: CREATE USER SELECTION SCREEN
+Create Game Choice Button --> Circle with gradient border, white background, icon in middle
+
+Create Game Choice Button Shadows --> Hover shadow, stepped shadow on win
+
+Create Game Choice Button Container --> Set background as bg-pentagon.svg, center svg
+
+Create Game Choice Button Pentagon --> Create all game choice buttons, 
+                                        lay out in pentagon shape
+
+Ensure Pentagon Shape Integrity --> Make sure the pentagon holds at all sizes, 
+                                      buttons resize appropriately
+
+
+STEP 2: CREATE GAME RESULTS SCREEN
+Create Choice Selected Screen --> Two sections, user selection slides into left section, 
+                                    other section is a shadow
+Create Winner Screen --> Two sections, one section holds user selection, 
+                          other section holds CPU selection, winner is highlighted, 
+                          win/lose message displayed, play again button shown
+
+
+
+STEP 3: CREATE THE REST OF THE SCREEN
+Create Header --> Outline, score, header text
+
+Create Rules Button --> Simple Button, brings up rules SVG
+
+Set Rules SVG --> Takes up full screen on mobile, Takes up part of screen on desktop, 
+                    close button functionality
+
+
+
+STEP 4: BUILD GAME LOGIC & FLOW
+1. User selects game choice button
+2. Selection screen shows with shadow
+3. Computer choices flash in empty slot
+4. Computer makes choice
+5. Slot updates with computer choice
+6. Winner identified
+  6a. "YOU WIN" or "YOU LOSE" message displayed w/ play again button
+  6b. Score updates, stores in localStorage
+7. If player chooses play again, return to user selection screen
+
