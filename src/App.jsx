@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import { Box } from "@chakra-ui/react";
+import { Box, Image, Text } from "@chakra-ui/react";
 import {
   RockIcon,
   PaperIcon,
@@ -13,17 +13,69 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className="App">
-      <GameButton variant={"rock"} />
-      <GameButton variant={"paper"} />
-      <GameButton variant={"scissors"} />
-      <GameButton variant={"lizard"} />
-      <GameButton variant={"spock"} />
-    </div>
+    <Box
+      className="App"
+      h="100%"
+      w="100%"
+      display="flex"
+      flexDir="column"
+      justifyContent="space-around"
+      alignItems="center"
+    >
+      <Box display="flex" justifyContent="space-between">
+        <Image src="/src/assets/logo-bonus.svg" />
+        <Box>
+          <Text>Score</Text>
+          <Text>12</Text>
+        </Box>
+      </Box>
+      <Box
+        h="22rem"
+        w="22rem"
+        position="relative"
+        background="center/100% no-repeat url(./bg-pentagon.svg)"
+      >
+        <GameButton
+          variant={"rock"}
+          position="absolute"
+          top="0"
+          left="50%"
+          transform="translate(-50%, -50%)"
+        />
+        <GameButton
+          variant={"paper"}
+          position="absolute"
+          top="35%"
+          left="2%"
+          transform="translate(-50%, -50%)"
+        />
+        <GameButton
+          variant={"scissors"}
+          position="absolute"
+          top="90%"
+          left="21%"
+          transform="translate(-50%, -50%)"
+        />
+        <GameButton
+          variant={"lizard"}
+          position="absolute"
+          top="90%"
+          left="79%"
+          transform="translate(-50%, -50%)"
+        />
+        <GameButton
+          variant={"spock"}
+          position="absolute"
+          top="35%"
+          left="98%"
+          transform="translate(-50%, -50%)"
+        />
+      </Box>
+    </Box>
   );
 }
 
-function GameButton({ variant, size }) {
+function GameButton({ variant, size, ...restProps }) {
   let icon;
   let gradient;
   let shadowColor;
@@ -73,6 +125,7 @@ function GameButton({ variant, size }) {
 
   return (
     <Box
+      {...restProps}
       bgGradient={gradient}
       boxShadow={`0 calc(0.05*${buttonSize}) ${shadowColor}`}
       height={buttonSize}
@@ -83,7 +136,7 @@ function GameButton({ variant, size }) {
       alignItems="center"
       cursor="pointer"
       _hover={{
-        boxShadow: `0 calc(0.05*${buttonSize}) ${shadowColor}, 0 0 0 calc(0.25 * ${buttonSize})`,
+        boxShadow: `0 calc(0.05*${buttonSize}) ${shadowColor}, 0 0 0 calc(0.125 * ${buttonSize}) #FFFFFF0C`,
       }}
     >
       {/*Gradient Background */}

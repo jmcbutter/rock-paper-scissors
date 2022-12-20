@@ -1,13 +1,19 @@
 import { extendTheme } from "@chakra-ui/react";
 
-const colors = {
-  brand: {
-    900: "#1a365d",
-    800: "#153e75",
-    700: "#2a69ac",
-  },
+const config = {
+  initialColorMode: "dark",
+  useSystemColorMode: false,
 };
 
-const theme = extendTheme({ colors });
+const styles = {
+  global: (props) => ({
+    body: {
+      bg: "no-repeat radial-gradient(circle at top,hsl(214 47% 23%), hsl(237 48% 15%))",
+      padding: 0,
+    },
+  }),
+};
+
+const theme = extendTheme({ config, styles });
 
 export default theme;
