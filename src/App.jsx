@@ -1,12 +1,13 @@
 import { useState } from "react";
 import "./App.css";
-import { Box, Image, Text } from "@chakra-ui/react";
+import { Box, Button, Grid, GridItem, Text } from "@chakra-ui/react";
 import {
   RockIcon,
   PaperIcon,
   ScissorsIcon,
   LizardIcon,
   SpockIcon,
+  LogoIcon,
 } from "./assets/icons";
 
 function App() {
@@ -19,63 +20,146 @@ function App() {
       w="100%"
       display="flex"
       flexDir="column"
-      justifyContent="space-around"
       alignItems="center"
+      justifyContent="space-between"
+      padding="2rem"
     >
-      <Box display="flex" justifyContent="space-between">
-        <Image src="/src/assets/logo-bonus.svg" />
-        <Box>
-          <Text>Score</Text>
-          <Text>12</Text>
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        border="1px solid white"
+        borderRadius="15px"
+        padding="1.75rem 2rem"
+        width="min(100%, 44rem)"
+      >
+        <LogoIcon boxSize="6.75rem" />
+        <Box
+          width="9.5rem"
+          borderRadius="8px"
+          background="linear-gradient(hsl(0 0% 100%), hsl(0 0% 95%))"
+          textAlign="center"
+          display="flex"
+          flexDir="column"
+          lineHeight="1"
+          justifyContent="space-around"
+          padding="1rem"
+        >
+          <Text
+            color="#2A45C2"
+            fontSize="1rem"
+            textTransform="uppercase"
+            fontWeight="700"
+            margin="0"
+          >
+            Score
+          </Text>
+          <Text color="#565468" fontSize="4rem" fontWeight="700">
+            12
+          </Text>
         </Box>
       </Box>
-      <Box
-        h="22rem"
-        w="22rem"
-        position="relative"
-        background="center/100% no-repeat url(./bg-pentagon.svg)"
+
+      <Board />
+      {/* <Grid
+        templateColumns="repeat(3, 1fr)"
+        templateRows="1fr 9fr"
+        gap="4.5rem"
       >
-        <GameButton
-          variant={"rock"}
-          position="absolute"
-          top="0"
-          left="50%"
-          transform="translate(-50%, -50%)"
-        />
-        <GameButton
-          variant={"paper"}
-          position="absolute"
-          top="35%"
-          left="2%"
-          transform="translate(-50%, -50%)"
-        />
-        <GameButton
-          variant={"scissors"}
-          position="absolute"
-          top="90%"
-          left="21%"
-          transform="translate(-50%, -50%)"
-        />
-        <GameButton
-          variant={"lizard"}
-          position="absolute"
-          top="90%"
-          left="79%"
-          transform="translate(-50%, -50%)"
-        />
-        <GameButton
-          variant={"spock"}
-          position="absolute"
-          top="35%"
-          left="98%"
-          transform="translate(-50%, -50%)"
-        />
+        <GridItem>
+          <Text fontSize="1.5rem" fontWeight="700" textTransform="uppercase">
+            You Picked
+          </Text>
+        </GridItem>
+        <GridItem>
+          <GameButton size="lg" variant="rock" />
+        </GridItem>
+        <GridItem>
+          <Text fontSize="1.5rem" fontWeight="700" textTransform="uppercase">
+            The House Picked
+          </Text>
+        </GridItem>
+        <GridItem>
+          <GameButton size="lg" variant="rock" />
+        </GridItem>
+      </Grid> */}
+
+      <Box
+        display="flex"
+        justifyContent={{ base: "center", lg: "flex-end" }}
+        width="100%"
+        background="inherit"
+      >
+        <Button
+          background="inherit"
+          color="white"
+          fontWeight="700"
+          textTransform="uppercase"
+          border="1px solid white"
+          padding="0.625rem 2.25rem"
+        >
+          Rules
+        </Button>
       </Box>
     </Box>
   );
 }
 
-function GameButton({ variant, size, ...restProps }) {
+function Board() {
+  const [selected, setSelected] = useState(true);
+
+  return (
+    <Box
+      h="22rem"
+      w="22rem"
+      position="relative"
+      background="center/100% no-repeat url(./bg-pentagon.svg)"
+    >
+      <GameButton
+        id="1"
+        variant={"rock"}
+        position="absolute"
+        top="0"
+        left="50%"
+        transform="translate(-50%, -50%)"
+        selected={selected}
+      />
+      <GameButton
+        id="2"
+        variant={"paper"}
+        position="absolute"
+        top="35%"
+        left="2%"
+        transform="translate(-50%, -50%)"
+      />
+      <GameButton
+        id="3"
+        variant={"scissors"}
+        position="absolute"
+        top="90%"
+        left="21%"
+        transform="translate(-50%, -50%)"
+      />
+      <GameButton
+        id="4"
+        variant={"lizard"}
+        position="absolute"
+        top="90%"
+        left="79%"
+        transform="translate(-50%, -50%)"
+      />
+      <GameButton
+        id="5"
+        variant={"spock"}
+        position="absolute"
+        top="35%"
+        left="98%"
+        transform="translate(-50%, -50%)"
+      />
+    </Box>
+  );
+}
+
+function GameButton({ id, variant, size, selected, ...restProps }) {
   let icon;
   let gradient;
   let shadowColor;
