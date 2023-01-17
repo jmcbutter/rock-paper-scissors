@@ -220,7 +220,7 @@ function GameButton({ id, variant, size, selected, ...restProps }) {
       alignItems="center"
       cursor="pointer"
       _hover={{
-        boxShadow: `0 calc(0.05*${buttonSize}) ${shadowColor}, 0 0 0 calc(0.125 * ${buttonSize}) #FFFFFF0C`,
+        boxShadow: `0 calc(0.05*${buttonSize}) ${shadowColor}, 0 calc(0.05*${buttonSize}/2) 0 calc(0.125 * ${buttonSize}) #FFFFFF0C`,
       }}
     >
       {/*Gradient Background */}
