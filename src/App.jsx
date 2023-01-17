@@ -59,29 +59,26 @@ function App() {
         </Box>
       </Box>
 
-      <Board />
-      {/* <Grid
-        templateColumns="repeat(3, 1fr)"
-        templateRows="1fr 9fr"
-        gap="4.5rem"
-      >
-        <GridItem>
+      {/* <Board /> */}
+      <Grid templateColumns="1fr auto 1fr" gap="4.5rem" textAlign="center">
+        <GridItem colStart={1} rowStart={1}>
           <Text fontSize="1.5rem" fontWeight="700" textTransform="uppercase">
             You Picked
           </Text>
         </GridItem>
-        <GridItem>
+        <GridItem colStart={1} rowStart={2}>
           <GameButton size="lg" variant="rock" />
         </GridItem>
-        <GridItem>
+
+        <GridItem colStart={3} rowStart={1}>
           <Text fontSize="1.5rem" fontWeight="700" textTransform="uppercase">
             The House Picked
           </Text>
         </GridItem>
-        <GridItem>
-          <GameButton size="lg" variant="rock" />
+        <GridItem colStart={3} rowStart={2}>
+          <GameButton size="lg" variant="paper" />
         </GridItem>
-      </Grid> */}
+      </Grid>
 
       <Box
         display="flex"
