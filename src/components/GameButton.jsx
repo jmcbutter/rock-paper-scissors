@@ -7,7 +7,7 @@ import {
   SpockIcon,
 } from "../assets/icons.jsx";
 
-function GameButton({ id, variant, size, selected, ...restProps }) {
+function GameButton({ id, variant, size, isSelected, isWinner, ...restProps }) {
   let icon;
   let gradient;
   let shadowColor;
@@ -23,6 +23,7 @@ function GameButton({ id, variant, size, selected, ...restProps }) {
         break;
     }
   })();
+
   (() => {
     switch (variant) {
       case "rock":
@@ -51,15 +52,17 @@ function GameButton({ id, variant, size, selected, ...restProps }) {
         shadowColor = "hsl(194 58% 42%)";
         break;
     }
-
-    return icon;
   })();
 
   return (
     <Box
       {...restProps}
       bgGradient={gradient}
-      boxShadow={`0 calc(0.05*${buttonSize}) ${shadowColor}`}
+      boxShadow={
+        isWinner
+          ? `0 calc(0.05*${buttonSize}) ${shadowColor}, 0 calc(0.05*${buttonSize}/2) 0 calc(0.75 * ${buttonSize}) #FFFFFF0C, 0 calc(0.05*${buttonSize}/2) 0 calc(0.50 * ${buttonSize}) #FFFFFF0C, 0 calc(0.05*${buttonSize}/2) 0 calc(0.25 * ${buttonSize}) #FFFFFF0C`
+          : `0 calc(0.05*${buttonSize}) ${shadowColor}`
+      }
       height={buttonSize}
       width={buttonSize}
       borderRadius="50%"
@@ -67,9 +70,13 @@ function GameButton({ id, variant, size, selected, ...restProps }) {
       justifyContent="center"
       alignItems="center"
       cursor="pointer"
-      _hover={{
-        boxShadow: `0 calc(0.05*${buttonSize}) ${shadowColor}, 0 calc(0.05*${buttonSize}/2) 0 calc(0.125 * ${buttonSize}) #FFFFFF0C`,
-      }}
+      _hover={
+        isSelected
+          ? ""
+          : {
+              boxShadow: `0 calc(0.05*${buttonSize}) ${shadowColor}, 0 calc(0.05*${buttonSize}/2) 0 calc(0.125 * ${buttonSize}) #FFFFFF0C`,
+            }
+      }
     >
       {/*Gradient Background */}
       <Box

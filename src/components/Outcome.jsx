@@ -12,7 +12,12 @@ function Outcome() {
         </Text>
       </GridItem>
       <GridItem colStart={1} rowStart={2}>
-        <GameButton size="lg" variant="rock" />
+        <GameButton
+          size="lg"
+          variant="rock"
+          isSelected="true"
+          isWinner="true"
+        />
       </GridItem>
 
       <GridItem
