@@ -10,6 +10,7 @@ const styles = {
     body: {
       bg: "no-repeat radial-gradient(circle at top,hsl(214 47% 23%), hsl(237 48% 15%))",
       padding: 0,
+      fontFamily: "inherit",
     },
   }),
 };

@@ -60,7 +60,7 @@ function App() {
       </Box>
 
       {/* <Board /> */}
-      <Grid templateColumns="1fr auto 1fr" gap="4.5rem" textAlign="center">
+      <Grid templateColumns="1fr auto 1fr" gap="4rem" textAlign="center">
         <GridItem colStart={1} rowStart={1}>
           <Text fontSize="1.5rem" fontWeight="700" textTransform="uppercase">
             You Picked
@@ -68,6 +68,26 @@ function App() {
         </GridItem>
         <GridItem colStart={1} rowStart={2}>
           <GameButton size="lg" variant="rock" />
+        </GridItem>
+
+        <GridItem
+          colStart={2}
+          rowStart={2}
+          display="flex"
+          flexDir="column"
+          justifyContent="center"
+        >
+          <Text fontSize="3.5rem" fontWeight="700" textTransform="uppercase">
+            YOU WIN
+          </Text>
+          <Button
+            bgColor="white"
+            padding="1rem"
+            color="#3B4262"
+            textTransform="uppercase"
+          >
+            Play Again
+          </Button>
         </GridItem>
 
         <GridItem colStart={3} rowStart={1}>
