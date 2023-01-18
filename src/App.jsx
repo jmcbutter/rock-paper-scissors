@@ -7,7 +7,16 @@ import Outcome from "./components/Outcome";
 import Header from "./components/Header";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [score, setScore] = useState(0);
+  const [userSelection, setUserSelection] = useState();
+
+  function addToScore() {
+    setScore(score + 1);
+  }
+
+  function select(selection) {
+    setUserSelection(selection);
+  }
 
   return (
     <Box
@@ -20,10 +29,17 @@ function App() {
       justifyContent="space-between"
       padding="2rem"
     >
-      <Header />
+      <Header score={score} />
 
-      {/* <Board /> */}
-      <Outcome />
+      {userSelection ? (
+        <Outcome
+          userSelection={userSelection}
+          addToScore={addToScore}
+          setUserSelection={setUserSelection}
+        />
+      ) : (
+        <Board select={select} />
+      )}
 
       <Box
         display="flex"

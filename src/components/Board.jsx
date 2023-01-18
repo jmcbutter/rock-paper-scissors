@@ -1,9 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Box } from "@chakra-ui/react";
 import GameButton from "./GameButton";
 
-function Board() {
-  const [selected, setSelected] = useState(true);
+function Board({ select }) {
+  const [selection, setSelection] = useState();
+
+  useEffect(() => {
+    select(selection);
+  }, [selection]);
+
+  function onButtonClick(variant) {
+    setSelection(variant);
+  }
 
   return (
     <Box
@@ -19,7 +27,7 @@ function Board() {
         top="0"
         left="50%"
         transform="translate(-50%, -50%)"
-        selected={selected}
+        onButtonClick={onButtonClick}
       />
       <GameButton
         id="2"
@@ -28,6 +36,7 @@ function Board() {
         top="35%"
         left="2%"
         transform="translate(-50%, -50%)"
+        onButtonClick={onButtonClick}
       />
       <GameButton
         id="3"
@@ -36,6 +45,7 @@ function Board() {
         top="90%"
         left="21%"
         transform="translate(-50%, -50%)"
+        onButtonClick={onButtonClick}
       />
       <GameButton
         id="4"
@@ -44,6 +54,7 @@ function Board() {
         top="90%"
         left="79%"
         transform="translate(-50%, -50%)"
+        onButtonClick={onButtonClick}
       />
       <GameButton
         id="5"
@@ -52,6 +63,7 @@ function Board() {
         top="35%"
         left="98%"
         transform="translate(-50%, -50%)"
+        onButtonClick={onButtonClick}
       />
     </Box>
   );

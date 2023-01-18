@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Box, Text } from "@chakra-ui/react";
 import { LogoIcon } from "../assets/icons";
 
-function Header() {
+function Header({ score }) {
   return (
     <Box
       display="flex"
@@ -34,7 +34,7 @@ function Header() {
           Score
         </Text>
         <Text color="#565468" fontSize="4rem" fontWeight="700">
-          12
+          {score}
         </Text>
       </Box>
     </Box>

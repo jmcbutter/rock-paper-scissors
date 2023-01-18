@@ -7,7 +7,15 @@ import {
   SpockIcon,
 } from "../assets/icons.jsx";
 
-function GameButton({ id, variant, size, isSelected, isWinner, ...restProps }) {
+function GameButton({
+  id,
+  variant,
+  size,
+  onButtonClick,
+  isSelected,
+  isWinner,
+  ...restProps
+}) {
   let icon;
   let gradient;
   let shadowColor;
@@ -17,6 +25,9 @@ function GameButton({ id, variant, size, isSelected, isWinner, ...restProps }) {
     switch (size) {
       case "lg":
         buttonSize = "19rem";
+        break;
+      case "md":
+        buttonSize = "13.5rem";
         break;
       default:
         buttonSize = "9.5rem";
@@ -77,6 +88,7 @@ function GameButton({ id, variant, size, isSelected, isWinner, ...restProps }) {
               boxShadow: `0 calc(0.05*${buttonSize}) ${shadowColor}, 0 calc(0.05*${buttonSize}/2) 0 calc(0.125 * ${buttonSize}) #FFFFFF0C`,
             }
       }
+      onClick={() => onButtonClick(variant)}
     >
       {/*Gradient Background */}
       <Box
