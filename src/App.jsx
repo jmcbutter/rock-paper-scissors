@@ -11,7 +11,7 @@ import { CloseIcon, RulesIcon } from "./assets/icons";
 function App() {
   const [score, setScore] = useState(0);
   const [userSelection, setUserSelection] = useState();
-  const [modalOpen, setModalOpen] = useState(true);
+  const [modalOpen, setModalOpen] = useState(false);
 
   function addToScore() {
     setScore(score + 1);
