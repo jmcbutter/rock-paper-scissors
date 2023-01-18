@@ -22,7 +22,7 @@ function Board({ select }) {
     >
       <GameButton
         id="1"
-        variant={"rock"}
+        variant={"scissors"}
         position="absolute"
         top="0"
         left="50%"
@@ -31,7 +31,7 @@ function Board({ select }) {
       />
       <GameButton
         id="2"
-        variant={"paper"}
+        variant={"spock"}
         position="absolute"
         top="35%"
         left="2%"
@@ -40,7 +40,7 @@ function Board({ select }) {
       />
       <GameButton
         id="3"
-        variant={"scissors"}
+        variant={"lizard"}
         position="absolute"
         top="90%"
         left="21%"
@@ -49,7 +49,7 @@ function Board({ select }) {
       />
       <GameButton
         id="4"
-        variant={"lizard"}
+        variant={"rock"}
         position="absolute"
         top="90%"
         left="79%"
@@ -58,7 +58,7 @@ function Board({ select }) {
       />
       <GameButton
         id="5"
-        variant={"spock"}
+        variant={"paper"}
         position="absolute"
         top="35%"
         left="98%"
